@@ -24,4 +24,7 @@ df[numeric_cols] = scaler.fit_transform(df[numeric_cols])
 categorical_cols = df.select_dtypes(include=['object', 'category']).columns
 df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
 
+# 5. Сохраняем в csv файл
+df.to_csv("processed_amazon_sales_dataset.csv", index=False)
+
 print("\nОбработанный датасет:\n", df.head())
